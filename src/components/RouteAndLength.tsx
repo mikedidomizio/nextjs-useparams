@@ -2,11 +2,11 @@
 import {useParams} from "next/navigation";
 
 export const RouteAndLength = () => {
-    const { slug } = useParams()
+    const { people } = useParams()
 
-    const len = slug.length
+    const len = people.length // if used in a component without param would result in an error at runtime
 
     return <>
-        {slug} - {len}
+        {people} - {len}
     </>
 }
