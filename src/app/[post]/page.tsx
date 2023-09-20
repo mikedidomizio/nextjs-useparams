@@ -1,11 +1,17 @@
-import {RouteAndLength} from "@/components/RouteAndLength";
+'use client'
+import {SomeComponent} from "@/components/SomeComponent";
+import {useParams} from "next/navigation";
 
 export default function Page() {
-    return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            Blog Posts
+    const { post } = useParams()
 
-            <RouteAndLength />
+    return (
+        <main className="p-24">
+            {typeof post === 'string' ? <SomeComponent title={post}>
+                <ul>
+                    <li>Thanks for checking out my blog post</li>
+                </ul>
+            </SomeComponent> : null}
         </main>
     )
 }
